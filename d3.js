@@ -1463,7 +1463,7 @@
       view.k = Math.max(view.k, Math.abs((range0[0] - range0[range0.length - 1]) / (s0(extent[0]) - s0(extent[1]))));
       function calcDomain() {
         return range0.map(function(r) {
-          return (r - view[dim]) / scale;
+          return (r - view[dim]) / view.k;
         }).map(s0.invert);
       }
       var domain = calcDomain();
