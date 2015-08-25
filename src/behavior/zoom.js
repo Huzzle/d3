@@ -202,7 +202,7 @@ d3.behavior.zoom = function() {
       (s0(extent[0]) - s0(extent[1]))));
 
       function calcDomain() {
-          return range0.map(function(r) { return (r - view[dim]) / scale; }).map(s0.invert);
+          return range0.map(function(r) { return (r - view[dim]) / view.k; }).map(s0.invert);
       }
       var domain = calcDomain();
       if (domain[0] < extent[0]) {
