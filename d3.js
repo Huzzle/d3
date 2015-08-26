@@ -1458,19 +1458,20 @@
         return;
       }
       var s0 = dim ? y0 : x0;
+      var dimName = dim ? "y" : "x";
       if (!s0) return;
       var range0 = s0.range(), s1 = dim ? y1 : x1, extent = dim ? yExtent : xExtent;
       view.k = Math.max(view.k, Math.abs((range0[0] - range0[range0.length - 1]) / (s0(extent[0]) - s0(extent[1]))));
       function calcDomain() {
         return range0.map(function(r) {
-          return (r - view[dim]) / view.k;
+          return (r - view[dimName]) / view.k;
         }).map(s0.invert);
       }
       var domain = calcDomain();
       if (domain[0] < extent[0]) {
-        view[dim] = range0[0] - s0(extent[0]) * view.k;
+        view[dimName] = range0[0] - s0(extent[0]) * view.k;
       } else if (domain[domain.length - 1] > extent[1]) {
-        view[dim] = range0[range0.length - 1] - s0(extent[1]) * view.k;
+        view[dimName] = range0[range0.length - 1] - s0(extent[1]) * view.k;
       }
       s1.domain(calcDomain());
     }
